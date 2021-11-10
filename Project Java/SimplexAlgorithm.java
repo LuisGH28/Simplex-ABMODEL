@@ -1,9 +1,19 @@
 import java.util.Scanner;
 
+/**
+	* Class  
+	*@author Angeles Loredo Alfredo
+	*@author Contreras Ventura Francisco Javier
+	*@author Feregrino Cruz Marlen Aili
+	*@author Fragoso García Sandra
+	*@author González Hernández Luis Ángel
+	*@author Maldonado Santiago Elisa Viridiana
+	*@author Mercado Reyes Monserrat
+	*@version 
+*/
+
 public class SimplexAlgorithm{
     public static void main(String args[]){
-
-        System.out.println("Hola");
         //Variables de la matriz
         int filas = 0, columnas = 0, contador =  1;
         Scanner entrada = new Scanner(System.in);
