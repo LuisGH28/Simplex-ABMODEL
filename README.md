@@ -1,4 +1,4 @@
-This algorithm was  codify by
+This algorithm was  coded by
     Angeles Loredo Alfredo,
     Contreras Ventura Francisco Javier,
     Feregrino Cruz Marlen Aili,
