@@ -1,30 +1,27 @@
-import java.io.*;
+import java.util.*;
 /**
 	* Class where all methods are created.
 	*@author Angeles Loredo Alfredo
 	*@author Contreras Ventura Francisco Javier
 	*@author Feregrino Cruz Marlen Aili
 	*@author Fragoso García Sandra
-	*@author Gonzalez Hernandez Luis Angel
+	*@author González Hernández Luis Ángel
 	*@author Maldonado Santiago Elisa Viridiana
 	*@author Mercado Reyes Monserrat
-	* November 10, 2021
+	*@version 
 	
 */
 class MethodsEnter{   
     
-	private static BufferedReader leer = new BufferedReader(new InputStreamReader(System.in));
-     
-	/**
-		*Read a string receiving a message as a parameter
-		*@param String message 
-		*@return returns the string read
-	*/
-    public static String readString( String message) throws IOException {
+	//Create Scanner's Method
+	private static Scanner entry = new Scanner(System.in);
+    
+	//This method receives String data
+    public static String readString( String message)  {
        String chain="";
 	   System.out.print(message);
 	   try{
-       chain = leer.readLine();
+       chain = entry.nextLine();
 	   }
 	   catch (Exception e){
 		   System.out.print("You must enter letters...");
@@ -32,18 +29,14 @@ class MethodsEnter{
        return (chain);      
     }
 	
-	/**
-		*Read a int receiving a message as a parameter
-		*@param String message 
-		*@return returns the number(int) read
-	*/
-	public static int readInt( String message) throws IOException {
+	//This method receives Int data
+	public static int readInt( String message) {
        int number=0;
 	   int flagError=0;
 	   while(flagError==0){
 		   System.out.print(message);
 		   try{
-					number = Integer.parseInt(leer.readLine());
+					number = entry.nextInt();
 					flagError=1;
 			}
 		   catch (Exception e){
@@ -54,18 +47,14 @@ class MethodsEnter{
        return (number);      
     }
 	
-	/**
-		*Read a double receiving a message as a parameter
-		*@param String message 
-		*@return returns the number(double) read
-	*/
-	public static double readDouble( String message) throws IOException {
+	//This method receives Double data
+	public static double readDouble( String message) {
        double number=0;
 	   int flagError=0;
 	   while(flagError==0){
 	   System.out.print(message);
 		   try{
-					number = Double.parseDouble(leer.readLine());
+					number = entry.nextDouble();
 					flagError=1;
 			}
 		   catch (Exception e){
@@ -76,10 +65,7 @@ class MethodsEnter{
        return (number);      
     }
 	
-	/**
-		*It shows an arrangement, receiving as a parameter the arrangement with the previously saved values.
-		*@param String Array
-	*/
+	//This method receives an array an after print it
 	public static void ShowsArray(String myArray [ ]){
 		int x;
 		System.out.println( myArray[0] );
@@ -88,6 +74,7 @@ class MethodsEnter{
 		}
 	}
 	
+	//This method receives an array an converts in a menu
 	public static void ShowsMenu(String myArray [ ]){
 		int x;
 		System.out.println("\t\t"+ myArray[0] );
@@ -96,16 +83,6 @@ class MethodsEnter{
 		}
 		
 	}
-
-	public static void cls(){
-		try {
-			if (System.getProperty("os.name").contains("Windows"))
-				new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-			else
-				Runtime.getRuntime().exec("clear");
-		} 
-		catch (IOException | InterruptedException ex) {}
-    }
 
 	public static void pause(){
 		try{ 

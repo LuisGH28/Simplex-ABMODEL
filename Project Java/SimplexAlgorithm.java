@@ -9,36 +9,54 @@ import java.util.Scanner;
 	*@author González Hernández Luis Ángel
 	*@author Maldonado Santiago Elisa Viridiana
 	*@author Mercado Reyes Monserrat
+    *@date: 10/11/2021
 	*@version 
 */
 
 public class SimplexAlgorithm{
     public static void main(String args[]){
-        //Variables de la matriz
-        int filas = 0, columnas = 0, contador =  1;
-        Scanner entrada = new Scanner(System.in);
+        //Variables of the matrix
+        int restrictions = 0, variables = 0;
+        //Create the method scanner
+        Scanner entry = new Scanner(System.in);
 
-        System.out.println("Escribe el número de restricciones que quieres");
-        filas = entrada.nextInt();
+        //Ask how many retrictions the user wants
+        restrictions = MethodsEnter.readInt("Type the numbers of restrictions you want: ");
+        restrictions += 1;
 
-        filas=filas+1;
-        System.out.println("Escribe la cantidad de variables que tienes");
-        columnas = entrada.nextInt();
-        columnas=columnas+filas;
+        //Ask how many variables the user has
+        variables = MethodsEnter.readInt("Type the number of variables you have: ");
+        variables += restrictions;
         
-        int numeros [][] = new int [filas][columnas];
+        //Initialize the matrix
+        int numbers [][] = new int [restrictions][variables];
 
-        for(int j = 0; j < filas; j++){
-            for(int i = 0; i < columnas; i++){
-                if(i <= filas){
-                    System.out.println("Ingrese las variable x: " + i + 1);
-                }else if(i > filas && i < columnas - 1){
-                    System.out.println("Ingrese las variable S: " + i + 1);
+        //Matrix filling begins
+        for(int j = 0; j < numbers.length; j++){
+            for(int i = 0; i < numbers[j].length; i++){
+                if(i <= restrictions){
+                    //System.out.print("Enter the variable x: " + i + 1);
+                    numbers[j][i] = MethodsEnter.readInt("Enter the variable x: " + i + 1);
+                }else if(i > restrictions && i < variables - 1){
+                    //System.out.print("Enter the variable x: " + i + 1);
+                    numbers[j][i] = MethodsEnter.readInt("Enter the variable x: " + i + 1);
                 }else{
-                    System.out.println("Ingrese el valor de solucion: " + i + 1);
-                }   
+                    numbers[j][i] = MethodsEnter.readInt("Enter the value of the solution: " + i + 1);
+                } 
+                   
             }
             System.out.println("");
         }
+
+        //Show the result of the matrix
+        for(int j = 0; j < numbers.length; j++){
+            System.out.print("|");
+            for(int i = 0; i < numbers[j].length; i++){
+                System.out.print(numbers[j][i]);
+                if (i!=numbers[j].length-1) System.out.print("\t");
+            }
+            System.out.println("|");
+        }
+        
     }
 }
