@@ -1,14 +1,15 @@
 import java.util.*;
 /**
-	* Class where all methods are created.
-	*@author Angeles Loredo Alfredo
-	*@author Contreras Ventura Francisco Javier
-	*@author Feregrino Cruz Marlen Aili
-	*@author Fragoso García Sandra
-	*@author González Hernández Luis Ángel
-	*@author Maldonado Santiago Elisa Viridiana
-	*@author Mercado Reyes Monserrat
-	*@version 
+* Class where all methods are created.
+*@author Angeles Loredo Alfredo
+*@author Contreras Ventura Francisco Javier
+*@author Feregrino Cruz Marlen Aili
+*@author Fragoso García Sandra
+*@author González Hernández Luis Ángel
+*@author Maldonado Santiago Elisa Viridiana
+*@author Mercado Reyes Monserrat
+*@date 11/11/2021
+*@version 
 	
 */
 class MethodsEnter{   
@@ -86,14 +87,6 @@ class MethodsEnter{
 
 	
 	
-	public static void pause(){
-		try{ 
-			Thread.sleep(5000); 
-		} 
-		catch(InterruptedException e )
-		{ 
-		  System.out.println("Interrupted pause"); 
-		}
-    }
+
 	
 }
