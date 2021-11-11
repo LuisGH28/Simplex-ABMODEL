@@ -84,6 +84,8 @@ class MethodsEnter{
 		
 	}
 
+	
+	
 	public static void pause(){
 		try{ 
 			Thread.sleep(5000); 
