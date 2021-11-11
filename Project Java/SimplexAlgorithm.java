@@ -75,6 +75,8 @@ public class SimplexAlgorithm{
             }
             System.out.println("|");
         }
-        
+        System.out.println("Probando");
+        System.out.println("Pruebas Francisco ");
+        System.out.println("Prueba S ");
     }
 }
