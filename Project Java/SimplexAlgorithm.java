@@ -57,6 +57,6 @@ public class SimplexAlgorithm{
             }
             System.out.println("|");
         }
-        
+        System.out.println("Probando");
     }
 }
