@@ -15,6 +15,13 @@ import java.util.Scanner;
 
 public class SimplexAlgorithm{
     public static void main(String args[]){
+
+        //Initialize an array that will be use as a menu
+        String menu [] = {"Menu\n \t1.- Instruction\n \t2.- Enter Variables\n \t3.- Show table\n \t4.- Exit"};
+        
+        //Show Menu
+        MethodsEnter.ShowsMenu(menu);
+
         //Variables of the matrix
         int restrictions = 0, variables = 0;
         //Create the method scanner
