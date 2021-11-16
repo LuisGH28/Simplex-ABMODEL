@@ -31,10 +31,14 @@ public class Matrix {
             }else{
                 System.out.print("Z" + " ");
             }
-            for(int j = 0; j<(restrictions+variables+1); j++){
-                System.out.print("\t" + numbers[i][j] + " ");
+            for(int j = 0; j < numbers.length; j++){
+                System.out.print("|");
+                for(int k = 0; k < numbers[j].length; k++){
+                    System.out.print(numbers[j][k]);
+                    if (k!=numbers[j].length+1) System.out.print("\t");
+                }
+                System.out.println("|");
             }
-            System.out.print("\n");
         }
     }
 }
