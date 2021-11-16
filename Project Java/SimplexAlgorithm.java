@@ -22,9 +22,9 @@ public class SimplexAlgorithm{
 
         int opc = 0;
         //Variables of the matrix Restrictions = rows Variables = Columns
-        int restrictions = 0, variables = 0, acummulator = 1;
+        int restrictions = 0, variables = 0, acummulator = 0;
         //Initialize the matrix
-        int numbers [][] = new int [restrictions + 1][variables + restrictions + 1];
+        int numbers [][] = new int [restrictions][variables];
 
         //Create the method scanner
         Scanner entry = new Scanner(System.in);
@@ -41,16 +41,19 @@ public class SimplexAlgorithm{
                     Introduction();
                 break;
                 case 2: 
+                    
                     restrictions = MethodsEnter.readInt("How many restrictions you have: ");
+                    restrictions +=1;
                     variables = MethodsEnter.readInt("How many vairbles you have: ");
-
+                    variables += restrictions + 1;
+                    
+                    System.out.println(restrictions);
+                    System.out.println(variables);
                     for(int i = 0; i<restrictions; i++){
-                        System.out.print("Enter data in row " + (i+1) + "\n");
-                        for(int j = 0; j<(variables + restrictions + 1); j++){
-                            numbers[i][j] = acummulator;
-                            acummulator++;
-                            acummulator = MethodsEnter.readInt("Numbers [" + i + "][" + j + "]: ");
+                        for(int j = 0; j<variables; j++){
+                           numbers[i][j] = MethodsEnter.readInt("Enter the values: ");
                        }
+                       System.out.println("\n\n");
                     }
                 break;
                 case 3:
@@ -59,9 +62,5 @@ public class SimplexAlgorithm{
                 case 4: break;
             }
         }while( opc != 4 );
-        //Clear console
-       // System.out.print("Everything on the console will cleared");
-        //System.out.print("\033[H\033[2J");
-        //System.out.flush();
     }
 }
