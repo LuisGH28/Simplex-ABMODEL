@@ -23,6 +23,7 @@ public class SimplexAlgorithm{
         MethodsEnter.ShowsMenu(menu);
 
         //Variables of the matrix
+        //Restrictions = rows Variables = Columns
         int restrictions = 0, variables = 0;
         //Create the method scanner
         Scanner entry = new Scanner(System.in);
@@ -52,39 +53,13 @@ public class SimplexAlgorithm{
             }
             System.out.println("");
         }
-        
-        //Print name of columns
-        for(int j = 0; j < (variables + restrictions + 1); j++){
-           if(j < variables){
-               System.out.println("\tX " + (j++));
-           }
-        }
 
-        for(int j = 0; j < (variables + restrictions + 1); j++){
-            if(j < restrictions){
-                System.out.println("\tS " + (j++));
-            }
-         }
-         //Clear console
-         System.out.print("Everything on the console will cleared");
-         System.out.print("\033[H\033[2J");
-         System.out.flush();
+        //Clear console
+        System.out.print("Everything on the console will cleared");
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
 
-         System.out.println("Result");
-         System.out.println("\n");
+        Matrix.printMatrix(variables, restrictions, numbers);
 
-        //Show the result of the matrix
-        for(int j = 0; j < numbers.length; j++){
-            System.out.print("|");
-            for(int i = 0; i < numbers[j].length; i++){
-                System.out.print(numbers[j][i]);
-                if (i!=numbers[j].length-1) System.out.print("\t");
-            }
-            System.out.println("|");
-        }
-        System.out.println("Probando");
-        System.out.println("Pruebas Francisco ");
-        System.out.println("Prueba S ");
-        System.out.println("New Test");
     }
 }
