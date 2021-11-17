@@ -22,9 +22,9 @@ public class SimplexAlgorithm{
 
         int opc = 0;
         //Variables of the matrix Restrictions = rows Variables = Columns
-        int restrictions = 0, variables = 0, acummulator = 0;
+        int restrictions = 0, variables = 0, columns = 0, rows = 0 ;
         //Initialize the matrix
-        int numbers [][] = new int [restrictions][variables];
+        int numbers [][] = new int [rows][columns];
 
         //Create the method scanner
         Scanner entry = new Scanner(System.in);
@@ -43,23 +43,30 @@ public class SimplexAlgorithm{
                 case 2: 
                     
                     restrictions = MethodsEnter.readInt("How many restrictions you have: ");
-                    restrictions +=1;
+                    rows = restrictions + 1;
                     variables = MethodsEnter.readInt("How many vairbles you have: ");
-                    variables += restrictions + 1;
+                    columns = variables + restrictions + 1;
 
-                    numbers = new int [restrictions + 1][variables + restrictions + 1];
+                    numbers = new int [rows + 1][columns + rows + 1];
                     
                     System.out.println(restrictions);
                     System.out.println(variables);
-                    for(int i = 0; i<restrictions; i++){
-                        for(int j = 0; j<variables; j++){
-                           numbers[i][j] = MethodsEnter.readInt("Enter the values: ");
+                    for(int i = 1; i<=rows; i++){
+                        for(int j = 1; j<=columns; j++){
+                            if(j<= rows - 1){
+                                numbers[i][j] = MethodsEnter.readInt("Enter the values of x" + j + ":");
+                            }else if(j >= rows && j != columns){
+                                numbers[i][j] = MethodsEnter.readInt("Enter the values of S" + j + ":");
+                            }else{
+                                numbers[i][j] = MethodsEnter.readInt("Enter the values of the solution: ");
+                            }
+                           
                        }
                        System.out.println("\n\n");
                     }
                 break;
                 case 3:
-                    Matrix.printMatrix(variables, restrictions, numbers);
+                    Matrix.printMatrix(columns, rows, variables, restrictions, numbers);
                 break;
                 case 4: break;
             }
