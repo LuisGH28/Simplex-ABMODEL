@@ -16,7 +16,7 @@ import java.util.*;
 public class SimplexAlgorithm{
 
     public static  void Introduction(){
-        System.out.println("\t You gotta enter the variables of your ");
+        System.out.println("\t You gotta enter the variables of your standard model, after the algorithm give you the solution. ");
     }
     public static void main(String args[]){
 
