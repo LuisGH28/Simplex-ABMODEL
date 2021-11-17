@@ -46,6 +46,8 @@ public class SimplexAlgorithm{
                     restrictions +=1;
                     variables = MethodsEnter.readInt("How many vairbles you have: ");
                     variables += restrictions + 1;
+
+                    numbers = new int [restrictions + 1][variables + restrictions + 1];
                     
                     System.out.println(restrictions);
                     System.out.println(variables);
