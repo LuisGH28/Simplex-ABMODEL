@@ -22,7 +22,7 @@ public class SimplexAlgorithm{
 
         int opc = 0;
         //Variables of the matrix Restrictions = rows Variables = Columns
-        int restrictions = 0, variables = 0, columns = 0, rows = 0 ;
+        int restrictions = 0, variables = 0, columns = 0, rows = 0, accumulator = 1;
         //Initialize the matrix
         int numbers [][] = new int [rows][columns];
 
@@ -36,6 +36,9 @@ public class SimplexAlgorithm{
         do{
             MethodsEnter.ShowsMenu(menu);
             opc = MethodsEnter.readInt("Select the option that you want: ");
+
+            System.out.println();
+
             switch(opc){
                 case 1: 
                     Introduction();
@@ -47,16 +50,28 @@ public class SimplexAlgorithm{
                     variables = MethodsEnter.readInt("How many vairbles you have: ");
                     columns = variables + restrictions + 1;
 
+                    System.out.println();
+
                     numbers = new int [rows + 1][columns + rows + 1];
-                    
-                    System.out.println(restrictions);
-                    System.out.println(variables);
+
+                    //For cycles for matrix filling
                     for(int i = 1; i<=rows; i++){
+
+                        //Print the funtion or restriction that we will want the user enter
+
+                        if(i==rows -1){
+                            System.out.println("Enter the value of the restriction  S" + i);
+                        }else{
+                            System.out.println("Enter the value of the fuction Z");
+                        }
+
+                        //Ask for the values
                         for(int j = 1; j<=columns; j++){
                             if(j<= rows - 1){
-                                numbers[i][j] = MethodsEnter.readInt("Enter the values of x" + j + ":");
+                                numbers[i][j] = MethodsEnter.readInt("Enter the values of x" + j + ": ");
                             }else if(j >= rows && j != columns){
-                                numbers[i][j] = MethodsEnter.readInt("Enter the values of S" + j + ":");
+                                numbers[i][j] = MethodsEnter.readInt("Enter the values of S" + accumulator + ": ");
+                                accumulator++;
                             }else{
                                 numbers[i][j] = MethodsEnter.readInt("Enter the values of the solution: ");
                             }
