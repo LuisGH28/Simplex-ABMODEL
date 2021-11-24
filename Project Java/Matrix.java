@@ -18,6 +18,15 @@ public class Matrix {
     //Create Scanner's Method
 	private static Scanner entry = new Scanner(System.in);
 
+    public static void printMathematicalModel(int rowsOne, int columnsOne,  int mathematicalModel[][]){
+        for(int i = 1; i <= rowsOne; i++){
+            for(int j = 1; j <= columnsOne; j++){
+                System.out.print("|" + mathematicalModel[i][j] + "|");
+                if(j!=mathematicalModel[i].length) System.out.print("\t");
+            }
+        }
+    }
+
     public static void printMatrix(int columns, int rows, int variables, int restrictions, int numbers [][]){
         
         int accumulator = 1;
@@ -33,7 +42,7 @@ public class Matrix {
                 accumulator ++;
             }
         }
-
+        
         System.out.println();
 
         for (int i = 1; i<=rows;i++){

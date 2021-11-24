@@ -17,5 +17,26 @@ public class Pivot {
     //Create Scanner's Method
 	private static Scanner entry = new Scanner(System.in);
 
-    //In this class we have to search the pivot value 
+	public static void negative(int rows, int columns, int numbers[][]){
+		
+		int valueNegative = 0;
+		for(int j = 0; j <= columns; j++){
+			if(numbers[rows][j] < 0){
+				System.out.println(numbers[rows][j] );
+			}
+		}
+		
+	}
+
+    
+	/*public static void pivot(int numbers[][]){
+		int pivot = -1, indexI = 1, indexJ = 1;
+		do{
+			if(numbers[indexI][indexJ] = ){
+
+			}else{
+
+			}
+		}while();
+	}*/
 }

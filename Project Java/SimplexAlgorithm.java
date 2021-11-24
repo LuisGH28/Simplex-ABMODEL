@@ -22,15 +22,18 @@ public class SimplexAlgorithm{
 
         int opc = 0;
         //Variables of the matrix Restrictions = rows Variables = Columns
-        int restrictions = 0, variables = 0, columns = 0, rows = 0, accumulator = 1;
+        int restrictions = 0, variables = 0, columns = 0, rows = 0, accumulator = 1, rowsOne = 0, columnsOne = 0;
+        int accumulatorOne = 1;
         //Initialize the matrix
         int numbers [][] = new int [rows][columns];
+        int mathematicalModel [][]= new int [rowsOne][columnsOne];
 
         //Create the method scanner
         Scanner entry = new Scanner(System.in);
 
         //Initialize an array that will be use as a menu
-        String menu [] = {"Menu\n \t1.- Instruction\n \t2.- Enter Variables\n \t3.- Show table\n \t4.- Exit"};
+        String menu [] = {"Menu\n \t1.- Instruction\n \t2.- Enter the Mathematical Model\n \t3.- Show Mathematical Model\n " + 
+                            "\t4.- Enter Variables\n \t5.- Show table\n \t6.- Show Value Negative\n \t7.-Exit\n"};
         
         //Show Menu
         do{
@@ -40,10 +43,25 @@ public class SimplexAlgorithm{
             System.out.println();
 
             switch(opc){
-                case 1: 
-                    Introduction();
+                case 1:
+                    Introduction(); 
                 break;
                 case 2: 
+                    rowsOne = MethodsEnter.readInt("How many rows you have: ");
+                    columnsOne = MethodsEnter.readInt("How many columns you have: ");
+
+                    mathematicalModel = new int [rowsOne + 1][columnsOne + rowsOne + 1];
+
+                    for(int i = 1; i<= rowsOne; i++){ 
+                        for(int j = 1; j<= columnsOne; j++){
+                            mathematicalModel[i][j] = MethodsEnter.readInt("Enter the values of x" + j + ": ");
+                        }
+                    }
+                break;
+                case 3:
+                    Matrix.printMathematicalModel(rowsOne, columnsOne, mathematicalModel);
+                break;
+                case 4: 
                     
                     restrictions = MethodsEnter.readInt("How many restrictions you have: ");
                     rows = restrictions + 1;
@@ -80,11 +98,14 @@ public class SimplexAlgorithm{
                        System.out.println("\n\n");
                     }
                 break;
-                case 3:
+                case 5:
                     Matrix.printMatrix(columns, rows, variables, restrictions, numbers);
                 break;
-                case 4: break;
+                case 6: 
+                    Pivot.negative(rows, columns,  numbers);
+                break;
+                case 7: break;
             }
-        }while( opc != 4 );
+        }while( opc != 7 );
     }
 }
