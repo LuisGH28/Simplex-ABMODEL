@@ -20,20 +20,28 @@ public class Pivot {
 	//Create method that search the value most negative
 	public static void negative(int rows, int columns, int numbers[][]){
 		
-		int less = 0;
+		int searchNegative = 0, bubble = 0;
 		//Print the last rows
 		for(int j = 1; j < columns; j++){
 			System.out.print("|" + numbers[rows][j] + "|");
-			for(int i = 0; i < numbers[numbers.length-1].length; i++){
-				if(numbers[numbers.length-1].length < less){
-					less = numbers[numbers.length-1][i];
-					columns = i;
+		}
+		
+		for(int i = 1; i < columns; i++){
+			if(numbers[rows][i] <= searchNegative){
+				for(int x = 1; x < rows; x++){
+					for(int y = 1; y <columns ; y++){
+						bubble = numbers[rows][y +1];
+						numbers[rows][y+1] = numbers[rows][y];
+						numbers[rows][y] = bubble;
+					}
 				}
 			}
 		}
-		
+
 		System.out.println();
-		System.out.println("The value more negative is: " + less);
+		System.out.println("The value most negative is:" + bubble);
+		
+	//	System.out.println("The value more negative is: " + less);
 		
 
 		//Print the last columns
