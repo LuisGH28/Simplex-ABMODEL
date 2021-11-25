@@ -17,26 +17,31 @@ public class Pivot {
     //Create Scanner's Method
 	private static Scanner entry = new Scanner(System.in);
 
+	//Create method that search the value most negative
 	public static void negative(int rows, int columns, int numbers[][]){
 		
-		int valueNegative = 0;
-		for(int j = 0; j <= columns; j++){
-			if(numbers[rows][j] < 0){
-				System.out.println(numbers[rows][j] );
+		int less = 0;
+		//Print the last rows
+		for(int j = 1; j < columns; j++){
+			System.out.print("|" + numbers[rows][j] + "|");
+			for(int i = 0; i < numbers[numbers.length-1].length; i++){
+				if(numbers[numbers.length-1].length < less){
+					less = numbers[numbers.length-1][i];
+					columns = i;
+				}
 			}
 		}
 		
+		System.out.println();
+		System.out.println("The value more negative is: " + less);
+		
+
+		//Print the last columns
+		for(int j = 1; j < rows; j++){
+			System.out.print("|" + numbers[j][columns] + "|");
+		}
+
+		System.out.println();
 	}
 
-    
-	/*public static void pivot(int numbers[][]){
-		int pivot = -1, indexI = 1, indexJ = 1;
-		do{
-			if(numbers[indexI][indexJ] = ){
-
-			}else{
-
-			}
-		}while();
-	}*/
 }

@@ -33,7 +33,7 @@ public class Matrix {
         
         //Add name of the columns
         for(int j = 1; j <= columns; j++){
-            if(j<(columns - 1)){
+            if(j <= variables){
                 System.out.print("\tX" + j);
             }else if(j>=columns && j != rows){
                 System.out.print("\tSolution");
