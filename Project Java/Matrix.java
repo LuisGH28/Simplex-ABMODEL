@@ -9,8 +9,8 @@ import java.util.*;
 	*@author González Hernández Luis Ángel
 	*@author Maldonado Santiago Elisa Viridiana
 	*@author Mercado Reyes Monserrat
-    *@date: 10/11/2021
-	*@version 
+    *@date: 24/11/2021
+	*@version 1.1.1
 */
 
 public class Matrix {

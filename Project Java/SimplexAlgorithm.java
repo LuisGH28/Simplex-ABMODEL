@@ -9,8 +9,8 @@ import java.util.*;
 	*@author González Hernández Luis Ángel
 	*@author Maldonado Santiago Elisa Viridiana
 	*@author Mercado Reyes Monserrat
-    *@date: 10/11/2021
-	*@version 
+    *@date: 25/11/2021
+	*@version 1.1.1
 */
 
 public class SimplexAlgorithm{
@@ -33,7 +33,8 @@ public class SimplexAlgorithm{
 
         //Initialize an array that will be use as a menu
         String menu [] = {"Menu\n \t1.- Instruction\n \t2.- Enter the Mathematical Model\n \t3.- Show Mathematical Model\n " + 
-                            "\t4.- Enter the Model in Standard Form\n \t5.- Show Simplex Table\n \t6.- Show Value Negative\n \t7.-Exit\n"};
+                            "\t4.- Enter the Model in Standard Form\n \t5.- Show Simplex Table\n \t6.- Show Value Negative\n" +
+                            "\t7.- Make Division\n \t8.- Exit\n"};
         
 
         do{
@@ -111,8 +112,11 @@ public class SimplexAlgorithm{
                     //Call the class which allow show the value most negative
                     Pivot.negative(rows, columns,  numbers);
                 break;
-                case 7: break;
+                case 7: 
+                    Pivot.makeDivisions(rows, columns, numbers);
+                break;
+                case 8: break;
             }
-        }while( opc != 7 );
+        }while( opc != 8 );
     }
 }
