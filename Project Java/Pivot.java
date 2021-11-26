@@ -6,7 +6,7 @@ import java.util.*;
 	*@author Contreras Ventura Francisco Javier
 	*@author Feregrino Cruz Marlen Aili
 	*@author Fragoso García Sandra
-	*@author González Hernández Luis Ángel
+	*@author González Hernández Luis Angel
 	*@author Maldonado Santiago Elisa Viridiana
 	*@author Mercado Reyes Monserrat
     *@date: 10/11/2021
@@ -20,19 +20,20 @@ public class Pivot {
 	//Create method that search the value most negative
 	public static void negative(int rows, int columns, int numbers[][]){
 		
-		int searchNegative = 0, bubble = 0;
+		int searchNegative = 0, bubble = 0, x = 0, y = 0, i = 0;
 		//Print the last rows
 		for(int j = 1; j < columns; j++){
 			System.out.print("|" + numbers[rows][j] + "|");
 		}
 		
-		for(int i = 1; i < columns; i++){
-			if(numbers[rows][i] <= searchNegative){
-				for(int x = 1; x < rows; x++){
-					for(int y = 1; y <columns ; y++){
-						bubble = numbers[rows][y +1];
-						numbers[rows][y+1] = numbers[rows][y];
-						numbers[rows][y] = bubble;
+		for( i = 1; i < columns; i++){
+			if(numbers[rows][i] < 0){
+				for( x = 1; x < numbers.length; x++){
+					for( y = 1; y <numbers.length ; y++){
+						bubble = numbers[x][y +1];
+						numbers[x][y+1] = numbers[x][y];
+						numbers[x][y] = bubble;
+
 					}
 				}
 			}
@@ -41,10 +42,8 @@ public class Pivot {
 		System.out.println();
 		System.out.println("The value most negative is:" + bubble);
 		
-	//	System.out.println("The value more negative is: " + less);
 		
-
-		//Print the last columns
+		//Print the last columns 
 		for(int j = 1; j < rows; j++){
 			System.out.print("|" + numbers[j][columns] + "|");
 		}
