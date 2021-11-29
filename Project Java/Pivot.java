@@ -26,7 +26,7 @@ public class Pivot {
 			System.out.print("|" + numbers[rows][j] + "|");
 		}
 		
-		for(int i = 1; i < columns; i++){
+		/*for(int i = 1; i < columns; i++){
 			if(numbers[rows][i] < searchNegative){
 				for(int x = 1; x < numbers.length; x++){
 					for(int y = 1; y < numbers.length ; y++){
@@ -36,7 +36,22 @@ public class Pivot {
 					}
 				}
 			}
-		}
+		}*/
+
+		int less=numbers[rows][columns];
+        int column=0;
+        for(int j=0;j<numbers[numbers.length-1].length;j++) {
+            if(numbers[numbers.length-1][j] < less){
+                less = numbers[numbers.length-1][j];
+                column = j;
+            }
+        }
+
+		System.out.print("\n");
+
+        System.out.print("\nThe lower value is: "+ less);
+        System.out.print("\nThe input column is: "+ column);
+        System.out.print("\n");
 
 		System.out.println();
 		System.out.println("The value most negative is:" + bubble);
