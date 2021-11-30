@@ -1,32 +1,35 @@
 import java.util.*;
 
 /**
-
-	*@author Angeles Loredo Alfredo
-	*@author Contreras Ventura Francisco Javier
-	*@author Feregrino Cruz Marlen Aili
-	*@author Fragoso García Sandra
-	*@author González Hernández Luis Ángel
-	*@author Maldonado Santiago Elisa Viridiana
-	*@author Mercado Reyes Monserrat
-    *@date: 25/11/2021
-	*@version 1.1.1
- 
-
+* Class  Simplex Model main
+*@author Angeles Loredo Alfredo
+*@author Contreras Ventura Francisco Javier
+*@author Feregrino Cruz Marlen Aili
+*@author Fragoso García Sandra
+*@author González Hernández Luis Ángel
+*@author Maldonado Santiago Elisa Viridiana
+*@author Mercado Reyes Monserrat
+*@date: 10/11/2021
+*@version 1.1.0 
 */
 
 public class SimplexAlgorithm{
 
     public static  void Introduction(){
-        System.out.println("You can find the instructions on the following website");
-        System.out.println("https://simplexalgorithm.000webhostapp.com/");
+        System.out.println("\t You gotta enter the variables of your standard model, after the algorithm give you the solution. ");
     }
     public static void main(String args[]){
-
+        String readVariables,readObjectiveFunction,readRestrictions,readType="";
+        //Arrays to save the mathematical model.
+        MathematicalModel  arrayProblemVariables[ ]=new MathematicalModel[80];
+        MathematicalModel  arrayProblemObjectiveFunction[ ]=new MathematicalModel[1];
+        MathematicalModel  arrayProblemRestrictions[ ]=new MathematicalModel[80];
         int opc = 0;
         //Variables of the matrix Restrictions = rows Variables = Columns
         int restrictions = 0, variables = 0, columns = 0, rows = 0, accumulator = 1, rowsOne = 0, columnsOne = 0;
         int accumulatorOne = 1;
+        int restrictionsModel = 0;
+        int  variablesModel = 0;
         //Initialize the matrix
         int numbers [][] = new int [rows][columns];
         int mathematicalModel [][]= new int [rowsOne][columnsOne];
@@ -36,8 +39,7 @@ public class SimplexAlgorithm{
 
         //Initialize an array that will be use as a menu
         String menu [] = {"Menu\n \t1.- Instruction\n \t2.- Enter the Mathematical Model\n \t3.- Show Mathematical Model\n " + 
-                            "\t4.- Enter the Model in Standard Form\n \t5.- Show Simplex Table\n \t6.- Show Value Negative\n" +
-                            "\t7.- Make Division\n \t8.- Exit\n"};
+                            "\t4.- Enter the Model in Standard Form\n \t5.- Show Simplex Table\n \t6.- Show Value Negative\n \t7.-Exit\n"};
         
 
         do{
@@ -53,22 +55,39 @@ public class SimplexAlgorithm{
                     Introduction(); 
                 break;
                 case 2: 
-                    //Ask how many rows and columns the user need 
-                    rowsOne = MethodsEnter.readInt("How many rows you have: ");
-                    columnsOne = MethodsEnter.readInt("How many columns you have: ");
-
-                    mathematicalModel = new int [rowsOne + 1][columnsOne + rowsOne + 1];
-
-                    //Ask for the values
-                    for(int i = 1; i<= rowsOne; i++){ 
-                        for(int j = 1; j<= columnsOne; j++){
-                            mathematicalModel[i][j] = MethodsEnter.readInt("Enter the values of x" + j + ": ");
-                        }
+                   variablesModel=MethodsEnter.readInt("How many variables you have the problem: ");
+                   restrictionsModel=MethodsEnter.readInt("How many restrictions you have the problem: ");
+                   
+                   for(int enterVariables=0; enterVariables<variablesModel; enterVariables++){
+                        readVariables=MethodsEnter.readString("Enter a Variables:");
+                        arrayProblemVariables[enterVariables]=new MathematicalModel(readVariables);
                     }
+                    readType=MethodsEnter.readString("Enter MAX if it is Maximize and MIN if it is Minimize:");
+                    readObjectiveFunction=MethodsEnter.readString("Z=");
+                    arrayProblemObjectiveFunction[0]=new MathematicalModel(readObjectiveFunction);
+                   for(int enterRestrictions=0; enterRestrictions<restrictionsModel; enterRestrictions++){
+                        readRestrictions=MethodsEnter.readString("Enter a restriction:");
+                        arrayProblemRestrictions[enterRestrictions]=new MathematicalModel(readRestrictions);
+                    }
+                  
+
+
                 break;
                 case 3:
                     //Call class that which allows show the mathematical model
-                    Matrix.printMathematicalModel(rowsOne, columnsOne, mathematicalModel);
+                    System.out.println("\t\tMathematical Model");
+                    System.out.println("\t\tProblem Variables:");
+
+                    for(int printVariables= 0; printVariables<variablesModel; printVariables++){
+                        System.out.println("\t"+arrayProblemVariables[printVariables].getMathematicalModel());
+                    }
+                    System.out.println("\n\t"+readType);
+                    System.out.println("\tZ= "+arrayProblemObjectiveFunction[0].getMathematicalModel());
+                    System.out.println("\t\tS.A:");
+                    for(int printRestriction= 0; printRestriction<restrictionsModel; printRestriction++){
+                        System.out.println(arrayProblemRestrictions[printRestriction].getMathematicalModel());
+                    }
+
                 break;
                 case 4: 
                     
@@ -82,25 +101,25 @@ public class SimplexAlgorithm{
                     numbers = new int [rows + 1][columns + rows + 1];
 
                     //For cycles for matrix filling
-                    for(int i = 1; i<=rows; i++){
+                    for(int start = 1; start<=rows; start++){
 
                         //Print the funtion or restriction that we will want the user enter
 
-                        if(i <= rows - 1){
+                        if(start <= rows - 1){
                             System.out.println("Enter the value of the restriction  S" + i);
                         }else{
                             System.out.println("Enter the value of the fuction Z");
                         }
 
                         //Ask for the values
-                        for(int j = 1; j<=columns; j++){
-                            if(j <= rows - 1){
-                                numbers[i][j] = MethodsEnter.readInt("Enter the values of x" + j + ": ");
-                            }else if(j >= rows && j != columns){
-                                numbers[i][j] = MethodsEnter.readInt("Enter the values of S" + accumulator + ": ");
+                        for(int goOver = 1; goOver<=columns; goOver++){
+                            if(goOver<= rows - 1){
+                                numbers[start][goOver] = MethodsEnter.readInt("Enter the values of x" + goOver + ": ");
+                            }else if(goOver >= rows && goOver != columns){
+                                numbers[start][goOver] = MethodsEnter.readInt("Enter the values of S" + accumulator + ": ");
                                 accumulator++;
                             }else{
-                                numbers[i][j] = MethodsEnter.readInt("Enter the values of the solution: ");
+                                numbers[start][goOver] = MethodsEnter.readInt("Enter the values of the solution: ");
                             }
                            
                        }
@@ -115,11 +134,8 @@ public class SimplexAlgorithm{
                     //Call the class which allow show the value most negative
                     Pivot.negative(rows, columns,  numbers);
                 break;
-                case 7: 
-                    Pivot.makeDivisions(rows, columns, numbers);
-                break;
-                case 8: break;
+                case 7: break;
             }
-        }while( opc != 8 );
+        }while( opc != 7 );
     }
 }
