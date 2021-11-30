@@ -20,41 +20,28 @@ public class Pivot {
 	//Create method that search the value most negative
 	public static void negative(int rows, int columns, int numbers[][]){
 		
-		int searchNegative = 0, bubble = 0;
+		int negative = numbers[rows][columns],  location = 0;
+
 		//Print the last rows
 		for(int j = 1; j < columns; j++){
 			System.out.print("|" + numbers[rows][j] + "|");
 		}
 		
-		/*for(int i = 1; i < columns; i++){
-			if(numbers[rows][i] < searchNegative){
-				for(int x = 1; x < numbers.length; x++){
-					for(int y = 1; y < numbers.length ; y++){
-						bubble = numbers[x][y + 1];
-						numbers[x][y+1] = numbers[x][y];
-						numbers[x][y] = bubble;
-					}
-				}
-			}
-		}*/
-
-		int less=numbers[rows][columns];
-        int column=0;
+		//Search the value most negative
         for(int j=0;j<numbers[numbers.length-1].length;j++) {
-            if(numbers[numbers.length-1][j] < less){
-                less = numbers[numbers.length-1][j];
-                column = j;
+            if(numbers[numbers.length-1][j] < negative){
+                negative = numbers[numbers.length-1][j];
+                location = j;
             }
         }
 
-		System.out.print("\n");
-
-        System.out.print("\nThe lower value is: "+ less);
-        System.out.print("\nThe input column is: "+ column);
-        System.out.print("\n");
-
 		System.out.println();
-		System.out.println("The value most negative is:" + bubble);
+
+        System.out.println("The most negative value is: " + negative);
+        System.out.println("The location is on the: " + location + " column");
+        System.out.println();
+
+		
 		
 		
 		//Print the last columns 
@@ -77,6 +64,13 @@ public class Pivot {
 
 		for(int j = 1; j < numberDivisionTwo.length; j++){
 			System.out.print(numberDivisionTwo[j]);
+		}
+
+		for(int i = 0; i < numbers.length; i++){
+			for(int j = 0; j < numbers.length; j++){
+				numbers[i][j]= numberDivision[columns] / numberDivisionTwo[rows];
+				System.out.print(numbers[i][j]);
+			}
 		}
 	}
 

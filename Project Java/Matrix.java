@@ -19,11 +19,13 @@ public class Matrix {
 	private static Scanner entry = new Scanner(System.in);
 
     public static void printMathematicalModel(int rowsOne, int columnsOne,  int mathematicalModel[][]){
-        for(int i = 1; i <= rowsOne; i++){
-            for(int j = 1; j <= columnsOne; j++){
-                System.out.print("|" + mathematicalModel[i][j] + "|");
-                if(j!=mathematicalModel[i].length) System.out.print("\t");
+        for(int i = 1; i < mathematicalModel.length; i++){
+            System.out.print("|");
+            for(int j = 1; j < mathematicalModel[i].length; j++){
+                System.out.print(mathematicalModel[i][j]);
+                if (j!=mathematicalModel[i].length-1) System.out.print("\t");
             }
+            System.out.println("|");
         }
     }
 
@@ -56,7 +58,7 @@ public class Matrix {
             }
 
             //Print the matriz
-
+            
             for(int j = 1; j<=columns; j++){
                 System.out.print("|" + numbers[i][j] + "|");
                 if(j!=numbers[i].length) System.out.print("\t");

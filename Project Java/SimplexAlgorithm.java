@@ -16,7 +16,8 @@ import java.util.*;
 public class SimplexAlgorithm{
 
     public static  void Introduction(){
-        System.out.println("\t You gotta enter the variables of your standard model, after the algorithm give you the solution. ");
+        System.out.println("You can find the instructions on the following website");
+        System.out.println("https://simplexalgorithm.000webhostapp.com/");
     }
     public static void main(String args[]){
 
