@@ -1,7 +1,7 @@
 import java.util.*;
 
 /**
-	* Class  
+
 	*@author Angeles Loredo Alfredo
 	*@author Contreras Ventura Francisco Javier
 	*@author Feregrino Cruz Marlen Aili
@@ -11,6 +11,8 @@ import java.util.*;
 	*@author Mercado Reyes Monserrat
     *@date: 25/11/2021
 	*@version 1.1.1
+ 
+
 */
 
 public class SimplexAlgorithm{
